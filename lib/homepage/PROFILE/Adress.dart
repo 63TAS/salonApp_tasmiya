@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_salon_app/paymentgatwey/paymentPage.dart';
 
 class AdressPage extends StatelessWidget {
   const AdressPage({super.key});
@@ -268,25 +269,29 @@ fontWeight: FontWeight.normal,
 
 ),
  SizedBox(width: 140,),
- Container(
-height: 50,
-width: 100,
-decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(5),
-color: Colors.white,
-),
-          child:Align(
-
-            child: Text('Checkout',
-            style: TextStyle(color: Colors.black,
-          fontSize: 15,
-          fontWeight: FontWeight.normal,
-          ),
-          
+ GestureDetector(
+  onTap: (){
+Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(),));  },
+   child: Container(
+ height: 50,
+ width: 100,
+ decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(5),
+ color: Colors.white,
+ ),
+            child:Align(
+ 
+              child: Text('Checkout',
+              style: TextStyle(color: Colors.black,
+            fontSize: 15,
+            fontWeight: FontWeight.normal,
             ),
-          )
-          
-          ),
+            
+              ),
+            )
+            
+            ),
+ ),
 
 
         ],),

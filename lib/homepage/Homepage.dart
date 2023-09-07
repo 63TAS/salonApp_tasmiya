@@ -1,9 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_salon_app/homepage/ButtonDesign/combuttonPage.dart';
 import 'package:flutter_salon_app/homepage/cartScreen.dart';
-
 import 'PROFILE/Accountpager.dart';
 
 class HomePage extends StatefulWidget {
@@ -136,7 +134,6 @@ size: 30,
           ),),
 
           SizedBox(width: 25,),
-
           InkWell(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder:(context) => comboPagebutton(),));

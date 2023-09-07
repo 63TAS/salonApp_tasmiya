@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_salon_app/Api/ApiFile.dart';
 import 'package:flutter_salon_app/Auth/WelcomePage.dart';
 
 class MobileNumberPage extends StatelessWidget {
-  const MobileNumberPage({super.key});
+ const MobileNumberPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-body: Column(
+      body: Column(
   children: [
     SizedBox(height: 100,),
 Center(
-  child:   RichText(text: TextSpan(children: [
+  child:   RichText(text: TextSpan(
+    children: [
    
   
     TextSpan(text: 'Hi, Welcome to  ',
@@ -139,6 +141,8 @@ Padding(
 SizedBox(height: 30,),
 InkWell(
   onTap: (){
+// getcategoryList();  
+  // getRegister();
     Navigator.push(context, MaterialPageRoute(
       builder:(context) => WelcomePage(),));
   },

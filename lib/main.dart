@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_salon_app/Auth/MobileNum,berPage.dart';
 import 'package:flutter_salon_app/Auth/WelcomePage.dart';
+import 'package:flutter_salon_app/Date%20and%20Time/DatetimePage.dart';
+import 'package:flutter_salon_app/paymentgatwey/paymentPage.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey =
+  'pk_test_51NncNoSCmIVJo6rcECytjeGl2NxKp0nIgrY5f3QQL5styp9R2cltQHyIwh4AElbcOcalFtSHYPZppZhjaVg4t0Fi00FqpSslHn';
   runApp(const MyApp());
 }
 
@@ -34,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MobileNumberPage(),
+      home:MobileNumberPage(),
     );
   }
 }

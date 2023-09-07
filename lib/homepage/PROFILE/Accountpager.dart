@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_salon_app/homepage/Homepage.dart';
 import 'package:flutter_salon_app/homepage/PROFILE/Adress.dart';
 import 'package:flutter_salon_app/homepage/PROFILE/profile.dart';
+import 'package:flutter_salon_app/paymentgatwey/paymentPage.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -99,17 +100,28 @@ class _ProfilePageState extends State<ProfilePage> {
        indent: 20,
        )  ,
       
-        ListTile(
-        leading: Icon(Icons.payment),
-          title: Text('Payment Method',
-          style: TextStyle(color: Colors.grey,
-          fontWeight: FontWeight.bold,
-          )
-          ),
-          trailing: Icon(Icons.arrow_forward_ios_sharp,
-      color: Colors.black,
-      ),
-          ),
+        GestureDetector(
+          onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder:(context) => PaymentPage(),));
+
+          },
+          child: ListTile(
+          leading: IconButton(
+            onPressed:(){
+              // Navigator.push(context, MaterialPageRoute(builder:(context) => PaymentPage(),));
+        
+            },
+           icon: Icon(Icons.payment)),
+            title: Text('Payment Method',
+            style: TextStyle(color: Colors.grey,
+            fontWeight: FontWeight.bold,
+            )
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_sharp,
+              color: Colors.black,
+              ),
+            ),
+        ),
        Divider(thickness: 2,
        color: Colors.grey,
       endIndent: 20,
