@@ -33,35 +33,35 @@ void Changebuttoncolor(){
      Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
-                SizedBox(height: 40,),
+                const SizedBox(height: 40,),
 
          //Top ui
           Row(children: [
-        SizedBox(width: 25,),
+        const SizedBox(width: 25,),
 
-            Text('salon App',
+            const Text('salon App',
             style: TextStyle(color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold,
             ),
             ),
 
-        SizedBox(width: 220,),
+        const SizedBox(width: 220,),
 
             IconButton(onPressed: (){
-Navigator.push(context, MaterialPageRoute(builder:(context) => cartScreen(),));
-            }, icon: Icon(Icons.shopping_cart,
+Navigator.push(context, MaterialPageRoute(builder:(context) => const cartScreen(),));
+            }, icon: const Icon(Icons.shopping_cart,
             color: Colors.grey,
 size: 30,
             )),
        
           ],),
         
-        SizedBox(height: 25,),
+        const SizedBox(height: 25,),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(children: [
-          SizedBox(width: 25,),
+          const SizedBox(width: 25,),
         
         Container(
           height: 40,
@@ -70,7 +70,7 @@ size: 30,
           color: Colors.blue.shade100,
           border: Border.all(color: Colors.blue)
           ),
-          child: Align(
+          child: const Align(
         
             child: Text('Facial',
           style: TextStyle(color: Colors.blue,
@@ -78,7 +78,7 @@ size: 30,
           ),
           ),
           ),),
-        SizedBox(width: 25,),
+        const SizedBox(width: 25,),
           InkWell(
  
             onTap: Changebuttoncolor,
@@ -91,7 +91,7 @@ size: 30,
             border: Border.all(color: Colors.black
             )
             ),
-            child: Align(
+            child: const Align(
                   
               child: Text('Mani &Pedi',
             style: TextStyle(color: Colors.black,
@@ -100,7 +100,7 @@ size: 30,
             ),
             ),),
           ),
-                 SizedBox(width: 25,),
+                 const SizedBox(width: 25,),
 
           Container(
           height: 40,
@@ -108,7 +108,7 @@ size: 30,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.black)
           ),
-          child: Align(
+          child: const Align(
             child: Text('Application',
           style: TextStyle(color: Colors.black,
           fontWeight: FontWeight.bold,
@@ -116,7 +116,7 @@ size: 30,
           ),
           ),),
 
-           SizedBox(width: 25,),
+           const SizedBox(width: 25,),
 
           Container(
           height: 40,
@@ -124,7 +124,7 @@ size: 30,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.black)
           ),
-          child: Align(
+          child: const Align(
         
             child: Text('Honey/ Rica',
           style: TextStyle(color: Colors.black,
@@ -133,10 +133,10 @@ size: 30,
           ),
           ),),
 
-          SizedBox(width: 25,),
+          const SizedBox(width: 25,),
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder:(context) => comboPagebutton(),));
+              Navigator.push(context, MaterialPageRoute(builder:(context) => const comboPagebutton(),));
             },
             child: Container(
             height: 40,
@@ -144,7 +144,7 @@ size: 30,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
             border: Border.all(color: Colors.black)
             ),
-            child: Align(
+            child: const Align(
                   
               child: Text('Combos',
             style: TextStyle(color: Colors.black,
@@ -155,7 +155,7 @@ size: 30,
           ),
 
         
-         SizedBox(width: 25,),
+         const SizedBox(width: 25,),
 
           Container(
           height: 40,
@@ -163,7 +163,7 @@ size: 30,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.black)
           ),
-          child: Align(
+          child: const Align(
         
             child: Text('Heena',
           style: TextStyle(color: Colors.black,
@@ -181,7 +181,7 @@ size: 30,
         ),
 
         //Mid ui
-SizedBox(height: 130,),
+const SizedBox(height: 130,),
 Container(
   // color: Colors.white,
   height: 140,
@@ -190,13 +190,13 @@ child: Image.network(
 'https://i.pinimg.com/564x/c6/1a/7f/c61a7f7923ce87b7dc54809c73f65f30.jpg',
 ),
 ),
-Text('No data found',
+const Text('No data found',
 style: TextStyle(color: Colors.grey,
 fontSize:20,
 fontWeight: FontWeight.bold,
 ),
 ),
-Text('No data Found please try again later',
+const Text('No data Found please try again later',
 style: TextStyle(color: Colors.grey,
 fontSize:15,
 fontWeight: FontWeight.normal,
@@ -226,7 +226,7 @@ fontWeight: FontWeight.normal,
                 label: 'Home',
           ),
         
-  BottomNavigationBarItem(
+  const BottomNavigationBarItem(
 icon: Icon(Icons.book,
               color: Colors.grey,
               size: 30,
@@ -238,7 +238,7 @@ icon: Icon(Icons.book,
         
 
         
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
              
               icon: Icon(Icons.movie_creation,
               color: Colors.grey,
@@ -250,12 +250,12 @@ icon: Icon(Icons.book,
               
           BottomNavigationBarItem(
             
-              icon: IconButton(icon: Icon(Icons.person,
+              icon: IconButton(icon: const Icon(Icons.person,
                color: Colors.grey,
                size: 20,
               ),
               onPressed: (){
-Navigator.push(context, MaterialPageRoute(builder:(context) =>  ProfilePage(),));
+Navigator.push(context, MaterialPageRoute(builder:(context) =>  const ProfilePage(),));
               },
               ),
              label: 'profile',

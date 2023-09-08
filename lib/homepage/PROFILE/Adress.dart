@@ -271,7 +271,9 @@ fontWeight: FontWeight.normal,
  SizedBox(width: 140,),
  GestureDetector(
   onTap: (){
-Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(),));  },
+// Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(),));  },
+   
+  },
    child: Container(
  height: 50,
  width: 100,

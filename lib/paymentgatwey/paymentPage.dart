@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_salon_app/paymentgatwey/razorpay.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart'as http;
 
-
 class PaymentPage extends StatefulWidget {
-  const PaymentPage({super.key});
+const PaymentPage({super.key});
 
   @override
   State<PaymentPage> createState() => _PaymentPageState();
@@ -13,7 +13,6 @@ class PaymentPage extends StatefulWidget {
 
 class _PaymentPageState extends State<PaymentPage> {
   var PaymentIntent;
- 
  //Payment method
  
 Future<void> makePayment() async {
@@ -40,15 +39,9 @@ paymentIntentClientSecret:
                       //Gotten from payment intent
                   style: ThemeMode.light,
                   merchantDisplayName: 'Ikay'));
-          
-
       // STEP 3: Display Payment sheet
       displayPaymentSheet();
-    
-    
-    
-    
-    
+        
     } catch (err) {
       throw Exception(err);
     }
@@ -76,7 +69,9 @@ displayPaymentSheet() async {
 
 
 
-  createPaymentIntent(String amount, String currency) async {
+  createPaymentIntent(String amount, 
+  String currency
+  ) async {
     try {
       //Request body
       Map<String, dynamic> body = {
@@ -101,18 +96,36 @@ displayPaymentSheet() async {
     }
   }
  
-  @override
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
 
       body: Column(children: [
         SizedBox(height: 60,),
+        
+        
+        
+        
+        
         TextButton(
           onPressed: (){
             makePayment();
 
         },
-         child: Text('Buy Now',
+         child: Text('Do Payment With Stripe ',
+         style: TextStyle(color: Colors.purple,
+         
+        fontSize: 20,
+         ),
+         )),
+           TextButton(
+          onPressed: (){
+            print('RAAS');
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => RAZORPAYAGE(),));
+            // RAZORPAYAGE();
+
+        },
+         child: Text('Do Payment With RazorPay ',
          style: TextStyle(color: Colors.purple,
          
         fontSize: 20,
