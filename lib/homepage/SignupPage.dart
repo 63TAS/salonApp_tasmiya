@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_salon_app/Api/ApiFile.dart';
 import 'package:flutter_salon_app/Auth/VerifyPage.dart';
@@ -17,33 +19,92 @@ TextEditingController _namecontroller = TextEditingController();
 TextEditingController _emailcontroller = TextEditingController();
 TextEditingController _passwordcontroller = TextEditingController();
 
-//Dilaog Box
+//for loading 
+bool isLoading= false;
+
+//for messages box
+bool isEmptyFileds = true;
+//Dilaog Box for cancallation in account creation
+
  Widget _buildDialog(BuildContext context) {
-  return AlertDialog(
-    title: Text("Messages"),
-    content: Text("${registerMessage?['message']}"),
-    actions: <Widget>[
+  return StatefulBuilder(
+    builder: (BuildContext context, StateSetter setState) {
+    
+    return AlertDialog(
+      title: Text("Messages"),
+      content: Text("${registerMessage?['message']}"),
+      actions: <Widget>[
       TextButton(
-        onPressed: () {
-          // Close the dialog
-          Navigator.of(context).pop();
-        },
+        onPressed: (){
+ Navigator.pop(context);
   
-        child: TextButton(onPressed: (){
-          Future.delayed(Duration(seconds: 2), (){
-Navigator.push(context,MaterialPageRoute(builder:(context) => Otpverifypage(),));
 
-          });
+          },
+          child:
+              Text('Close'),
+           
+          ),
+        
+      ],
+    
+ );});
+}
 
-        },
-        child: Text('Close'),
-        ),
-      ),
-    ],
-  );
+//dialog box for sccessfully account create
+
+Widget _buildAnotherdilaog(BuildContext context) {
+  return StatefulBuilder(
+    builder: (BuildContext context, StateSetter setState) {
+    
+    return AlertDialog(
+      title: Text("Messages"),
+      content: Text("${registerMessage?['message']}"),
+      actions: <Widget>[
+        
+      ],
+    
+ );});
 }
 
 
+
+//validation for textfields
+String emailErrorText = '';
+String passowrdErrorText = '';
+String nameErrorText = '';
+
+//validation for email
+
+String? validateEmail(String value){
+  if(value.isEmpty){
+return 'Email is required';
+  }else{
+        if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value)) {
+return 'Enter valid email address';
+  }else{
+    return null;
+  }}}
+
+  //for password name
+  String ? validationPassword(String value){
+    if(value.isEmpty){
+      return 'Password is required';
+    }else{
+      if(value.length <6){
+        return 'Password is at least 6 characters';
+      }
+    }
+  }
+
+String? validatename(String value){
+if(value.isEmpty){
+  return 'This field is required';
+}else{
+return null;
+}
+}
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,8 +113,7 @@ body: SingleChildScrollView(
   child:   Column(children: [
   
    SizedBox(height: 100,),
-  
-    Padding(
+      Padding(
   
       padding: const EdgeInsets.only(left: 5),
   
@@ -101,9 +161,10 @@ body: SingleChildScrollView(
   
     child:   TextField(
       controller: _namecontroller,
+      obscureText: true,
       decoration: InputDecoration(
   
-    
+    errorText: nameErrorText,
   
      hintText: 'Enter name',
 
@@ -112,7 +173,7 @@ body: SingleChildScrollView(
   filled: true,
      hintStyle: TextStyle(color: Colors.purple,
   
-     fontSize: 20,
+     fontSize: 17,
   
      ),
   
@@ -151,10 +212,12 @@ body: SingleChildScrollView(
   
     ),
   
-    child:   TextField(
+    child:   TextFormField(
       controller: _emailcontroller,
+obscureText: true,
       decoration: InputDecoration(
   
+    errorText: emailErrorText,
     
   
      hintText: 'Enter email',
@@ -164,7 +227,7 @@ body: SingleChildScrollView(
   
      hintStyle: TextStyle(color: Colors.purple,
   
-     fontSize: 20,
+     fontSize: 17,
   
      ),
   
@@ -204,17 +267,20 @@ body: SingleChildScrollView(
   
     ),
   
-    child:   TextField(
+    child:   TextFormField(
       controller: _passwordcontroller,
+    obscureText: true,
+    //  validator: validationPassword,
       decoration: InputDecoration(
      hintText: 'Enter passowrd',
-  
+  errorText: passowrdErrorText,
+   
     fillColor: Colors.grey,
     filled: true,
   
      hintStyle: TextStyle(color: Colors.purple,
   
-     fontSize: 20,
+     fontSize: 17,
        ),
   
     
@@ -252,18 +318,43 @@ body: SingleChildScrollView(
   SizedBox(height: 70,),
     InkWell(
       onTap: (){
+  print(isEmptyFileds);
 getRegister(
   _namecontroller.text, 
 _emailcontroller.text,
  _passwordcontroller.text
  );
-      
-     showDialog(
+      Future.delayed(Duration(seconds: 1), (){
+
+if(isEmptyFileds){
+// setState(() {
+//   isEmptyFileds = true;
+// });
+  showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return _buildAnotherdilaog(context,);
+                      }
+   
+            );
+             
+      }else{
+         showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return _buildDialog(context,);
-                  },
-                );
+                      }
+         );
+      }
+      }
+      );
+    
+             
+             setState(() {
+               emailErrorText= validateEmail(_emailcontroller.text)?? '';
+               passowrdErrorText = validationPassword(_passwordcontroller.text)?? '';
+            nameErrorText = validatename(_namecontroller.text) ??'';
+             });
               },
      
 
