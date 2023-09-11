@@ -9,6 +9,13 @@ class cartScreen extends StatefulWidget {
 
 class _cartScreenState extends State<cartScreen> {
   @override
+  void initState(){
+    super.initState();
+
+  }
+
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
 body: Column(children: [
@@ -42,120 +49,125 @@ body: Column(children: [
     ),
   ),
 SizedBox(height: 30,),
-Container(
-height: 140,
-width: 360,
-decoration: BoxDecoration(
-  borderRadius: BorderRadius.circular(10),
-color: Colors.grey.shade100,
-),
 
-  child: ListTile(  
-    leading: Container(
-      child: Image.network(
-        'https://i.pinimg.com/564x/fa/05/dc/fa05dca0a7d56487e0e907e0ac1e8bcc.jpg',
-       fit: BoxFit.cover,
-               ),
-    ),
-  trailing: IconButton(
-  onPressed: (){
+
+
+
+
+// Container(
+// height: 140,
+// width: 360,
+// decoration: BoxDecoration(
+//   borderRadius: BorderRadius.circular(10),
+// color: Colors.grey.shade100,
+// ),
+
+//   child: ListTile(  
+//     leading: Container(
+//       child: Image.network(
+//         'https://i.pinimg.com/564x/fa/05/dc/fa05dca0a7d56487e0e907e0ac1e8bcc.jpg',
+//        fit: BoxFit.cover,
+//                ),
+//     ),
+//   trailing: IconButton(
+//   onPressed: (){
   
-  },
+//   },
   
-  icon: Icon(Icons.delete,
-  color: Colors.red,
-  )),
+//   icon: Icon(Icons.delete,
+//   color: Colors.red,
+//   )),
   
-  title: Row(
-  children: [
-        RichText(text: TextSpan(children: [
+//   title: Row(
+//   children: [
+//         RichText(text: TextSpan(children: [
     
-    TextSpan(text: 'Summer Facial\n',
+//     TextSpan(text: 'Summer Facial\n',
     
-    style: TextStyle(color: Colors.black,
+//     style: TextStyle(color: Colors.black,
     
-    fontWeight: FontWeight.bold,
+//     fontWeight: FontWeight.bold,
     
-    fontSize: 15,
+//     fontSize: 15,
     
-    )
+//     )
     
-    ),
+//     ),
     
-    TextSpan(text: 'test\n',
+//     TextSpan(text: 'test\n',
     
-    style: TextStyle(
+//     style: TextStyle(
     
-      color: Colors.black,
+//       color: Colors.black,
     
-    fontWeight: FontWeight.normal,
+//     fontWeight: FontWeight.normal,
     
-    fontSize: 10,
+//     fontSize: 10,
     
-    )
+//     )
     
-    ),
-          WidgetSpan(
-    
-        
-    
-                   child: SizedBox(height: 40), // Add desired spacing here
+//     ),
+//           WidgetSpan(
     
         
     
-                 ),
-    
-    TextSpan(text: '999',
-    
-    style: TextStyle(color: Colors.black,
-    
-    fontWeight: FontWeight.bold,
-    
-    fontSize: 15,
-    
-    decoration: TextDecoration.lineThrough,
-    
-    )
-    
-    ),
-    
-    
-    
-          WidgetSpan(
+//                    child: SizedBox(height: 40), // Add desired spacing here
     
         
     
-                   child: SizedBox(width: 10), // Add desired spacing here
+//                  ),
+    
+//     TextSpan(text: '999',
+    
+//     style: TextStyle(color: Colors.black,
+    
+//     fontWeight: FontWeight.bold,
+    
+//     fontSize: 15,
+    
+//     decoration: TextDecoration.lineThrough,
+    
+//     )
+    
+//     ),
+    
+    
+    
+//           WidgetSpan(
     
         
     
-                 ),
+//                    child: SizedBox(width: 10), // Add desired spacing here
     
-    TextSpan(text: 'Rs 2500',
+        
     
-    style: TextStyle(color: Colors.black,
+//                  ),
     
-    fontWeight: FontWeight.normal,
+//     TextSpan(text: 'Rs 2500',
     
-    fontSize: 18,
+//     style: TextStyle(color: Colors.black,
     
-    )
+//     fontWeight: FontWeight.normal,
     
-    ),
+//     fontSize: 18,
     
+//     )
     
-    
-    
-    
-    ]
+//     ),
     
     
     
-    ),
+    
+    
+//     ]
     
     
     
-    ),
+//     ),
+    
+    
+    
+//     ),
    
    
   //  Padding(
@@ -171,10 +183,10 @@ color: Colors.grey.shade100,
   //    ),
   //  )
    
-  ],
-  ),
-  ),
-),
+//   ],
+//   ),
+//   ),
+// ),
 SizedBox(height: 50,),
 Container(
   height: 50,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_salon_app/Auth/MobileNum,berPage.dart';
+import 'package:flutter_salon_app/Auth/VerifyPage.dart';
 import 'package:flutter_salon_app/Auth/WelcomePage.dart';
 import 'package:flutter_salon_app/Date%20and%20Time/DatetimePage.dart';
+import 'package:flutter_salon_app/homepage/SignupPage.dart';
 import 'package:flutter_salon_app/paymentgatwey/paymentPage.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:MobileNumberPage(),
+      home:SignupPage(),
     );
   }
 }
